@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		5E555C0D2413F4C50049A1A2 /* PurchasesSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* PurchasesSdk.m */; };
-		F4FF95D7245B92E800C19C63 /*  PurchasesSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /*  PurchasesSdk.swift */; };
-
+		C642A7942703055C002B1DE4 /* LinkFiveEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7872703055B002B1DE4 /* LinkFiveEnvironment.swift */; };
+		C642A7952703055C002B1DE4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7882703055B002B1DE4 /* Result.swift */; };
+		C642A7962703055C002B1DE4 /* LinkFiveLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7892703055B002B1DE4 /* LinkFiveLogger.swift */; };
+		C642A7972703055C002B1DE4 /* LinkFivePurchasesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A78A2703055B002B1DE4 /* LinkFivePurchasesError.swift */; };
+		C642A7982703055C002B1DE4 /* LinkFiveUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A78B2703055B002B1DE4 /* LinkFiveUserDefaults.swift */; };
+		C642A7992703055C002B1DE4 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A78E2703055B002B1DE4 /* EmptyResponse.swift */; };
+		C642A79A2703055C002B1DE4 /* LinkfivePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A78F2703055B002B1DE4 /* LinkfivePurchase.swift */; };
+		C642A79B2703055C002B1DE4 /* LinkFiveSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7902703055B002B1DE4 /* LinkFiveSubscription.swift */; };
+		C642A79C2703055C002B1DE4 /* LinkFiveReceiptInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7912703055B002B1DE4 /* LinkFiveReceiptInfo.swift */; };
+		C642A79D2703055C002B1DE4 /* LinkFiveAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7922703055B002B1DE4 /* LinkFiveAPIClient.swift */; };
+		C642A79E2703055C002B1DE4 /* LinkFivePurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = C642A7932703055B002B1DE4 /* LinkFivePurchases.swift */; };
+		F4FF95D7245B92E800C19C63 /* PurchasesSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* PurchasesSdk.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,11 +35,20 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libPurchasesSdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPurchasesSdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-
 		B3E7B5891CC2AC0600A0062D /* PurchasesSdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchasesSdk.m; sourceTree = "<group>"; };
+		C642A7872703055B002B1DE4 /* LinkFiveEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFiveEnvironment.swift; sourceTree = "<group>"; };
+		C642A7882703055B002B1DE4 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		C642A7892703055B002B1DE4 /* LinkFiveLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFiveLogger.swift; sourceTree = "<group>"; };
+		C642A78A2703055B002B1DE4 /* LinkFivePurchasesError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFivePurchasesError.swift; sourceTree = "<group>"; };
+		C642A78B2703055B002B1DE4 /* LinkFiveUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFiveUserDefaults.swift; sourceTree = "<group>"; };
+		C642A78E2703055B002B1DE4 /* EmptyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
+		C642A78F2703055B002B1DE4 /* LinkfivePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkfivePurchase.swift; sourceTree = "<group>"; };
+		C642A7902703055B002B1DE4 /* LinkFiveSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFiveSubscription.swift; sourceTree = "<group>"; };
+		C642A7912703055B002B1DE4 /* LinkFiveReceiptInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFiveReceiptInfo.swift; sourceTree = "<group>"; };
+		C642A7922703055B002B1DE4 /* LinkFiveAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFiveAPIClient.swift; sourceTree = "<group>"; };
+		C642A7932703055B002B1DE4 /* LinkFivePurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkFivePurchases.swift; sourceTree = "<group>"; };
 		F4FF95D5245B92E700C19C63 /* PurchasesSdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PurchasesSdk-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4FF95D6245B92E800C19C63 /* PurchasesSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesSdk.swift; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +73,54 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-
+				C642A785270304B8002B1DE4 /* LinkFivePurchase */,
 				F4FF95D6245B92E800C19C63 /* PurchasesSdk.swift */,
 				B3E7B5891CC2AC0600A0062D /* PurchasesSdk.m */,
 				F4FF95D5245B92E700C19C63 /* PurchasesSdk-Bridging-Header.h */,
-
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		C642A785270304B8002B1DE4 /* LinkFivePurchase */ = {
+			isa = PBXGroup;
+			children = (
+				C642A78C2703055B002B1DE4 /* APIClient */,
+				C642A7932703055B002B1DE4 /* LinkFivePurchases.swift */,
+				C642A7862703055B002B1DE4 /* Utilities */,
+			);
+			path = LinkFivePurchase;
+			sourceTree = "<group>";
+		};
+		C642A7862703055B002B1DE4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C642A7872703055B002B1DE4 /* LinkFiveEnvironment.swift */,
+				C642A7882703055B002B1DE4 /* Result.swift */,
+				C642A7892703055B002B1DE4 /* LinkFiveLogger.swift */,
+				C642A78A2703055B002B1DE4 /* LinkFivePurchasesError.swift */,
+				C642A78B2703055B002B1DE4 /* LinkFiveUserDefaults.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C642A78C2703055B002B1DE4 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				C642A78D2703055B002B1DE4 /* Models */,
+				C642A7922703055B002B1DE4 /* LinkFiveAPIClient.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		C642A78D2703055B002B1DE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C642A78E2703055B002B1DE4 /* EmptyResponse.swift */,
+				C642A78F2703055B002B1DE4 /* LinkfivePurchase.swift */,
+				C642A7902703055B002B1DE4 /* LinkFiveSubscription.swift */,
+				C642A7912703055B002B1DE4 /* LinkFiveReceiptInfo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,10 +180,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
+				C642A7982703055C002B1DE4 /* LinkFiveUserDefaults.swift in Sources */,
+				C642A79D2703055C002B1DE4 /* LinkFiveAPIClient.swift in Sources */,
+				C642A7992703055C002B1DE4 /* EmptyResponse.swift in Sources */,
+				C642A79C2703055C002B1DE4 /* LinkFiveReceiptInfo.swift in Sources */,
+				C642A7952703055C002B1DE4 /* Result.swift in Sources */,
 				F4FF95D7245B92E800C19C63 /* PurchasesSdk.swift in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* PurchasesSdk.m in Sources */,
-
+				C642A79A2703055C002B1DE4 /* LinkfivePurchase.swift in Sources */,
+				C642A7972703055C002B1DE4 /* LinkFivePurchasesError.swift in Sources */,
+				C642A79E2703055C002B1DE4 /* LinkFivePurchases.swift in Sources */,
+				C642A79B2703055C002B1DE4 /* LinkFiveSubscription.swift in Sources */,
+				C642A7942703055C002B1DE4 /* LinkFiveEnvironment.swift in Sources */,
+				C642A7962703055C002B1DE4 /* LinkFiveLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,11 +304,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PurchasesSdk;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "PurchasesSdk-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
@@ -259,10 +323,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PurchasesSdk;
 				SKIP_INSTALL = YES;
-
 				SWIFT_OBJC_BRIDGING_HEADER = "PurchasesSdk-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};
