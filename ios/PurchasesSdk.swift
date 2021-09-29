@@ -27,8 +27,43 @@ class PurchasesSdk: NSObject {
                 resolve(products.map({ $0.asDictionary }))
             }
         }
-
     }
+
+   @objc(purchase:withResolver:withRejecter:)
+   func purchase(productId: String, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) -> Void {
+       linkfivePurchases.purchase(productId: productId) { result in
+           switch result {
+           case .failure(let error):
+               reject("error", error.localizedDescription, error)
+           case .success(let succeeded):
+               resolve(succeeded)
+           }
+       }
+   }
+
+   @objc(restore:withRejecter:)
+   func restore(resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) -> Void {
+       linkfivePurchases.restore { result in
+           switch result {
+           case .failure(let error):
+               reject("error", error.localizedDescription, error)
+           case .success(let succeeded):
+               resolve(succeeded)
+           }
+       }
+   }
+
+   @objc(fetchReceiptInfo:withResolver:withRejecter:)
+   func purchase(fromCache: Bool, resolve: @escaping RCTPromiseResolveBlock, reject: @escaping RCTPromiseRejectBlock) -> Void {
+       linkfivePurchases.fetchReceiptInfo(fromCache: fromCache) { result in
+           switch result {
+           case .failure(let error):
+               reject("error", error.localizedDescription, error)
+           case .success(let receipts):
+               resolve(receipts.map({ $0.asDictionary }))
+           }
+       }
+   }
 }
 
 public final class LinkFivePurchases: NSObject {
@@ -715,10 +750,34 @@ public struct LinkFiveReceipt: Codable {
 
     /// Optional custom attributes.
     public let attributes: String?
+    
+    private static var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = NSLocale.current
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        return dateFormatter
+    }
+    
+    /// Returns the receipt as dictionary
+    var asDictionary: [String: Any?] {
+        return [
+            "sku": sku,
+            "purchaseId": purchaseId,
+            "transactionDate": LinkFiveReceipt.dateFormatter.string(from: transactionDate),
+            "validUntilDate": LinkFiveReceipt.dateFormatter.string(from: validUntilDate),
+            "isExpired": isExpired,
+            "isTrial": isTrial,
+            "period": period,
+            "familyName": familyName,
+            "attributes": attributes
+        ]
+    }
 }
 
 extension SKProduct {
 
+    /// Returns the product as dictionary
     var asDictionary: [String: Any?] {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
