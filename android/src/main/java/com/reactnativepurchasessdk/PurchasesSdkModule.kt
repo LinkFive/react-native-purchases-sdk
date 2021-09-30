@@ -21,7 +21,8 @@ class PurchasesSdkModule(reactContext: ReactApplicationContext) : ReactContextBa
 
     @ReactMethod
     fun launch(apiKey: String, environment: String, promise: Promise) {
-
+      val environmentType = LinkFiveEnvironment.valueOf(environment)
+      LinkFivePurchases.launch(apiKey, environment = environmentType)
     }
 
     @ReactMethod
@@ -39,3 +40,54 @@ class PurchasesSdkModule(reactContext: ReactApplicationContext) : ReactContextBa
 
     }
 }
+
+object LinkFivePurchases {
+
+  private lateinit var apiClient: LinkFiveApiClient
+
+  fun launch(apiKey: String, environment: LinkFiveEnvironment) {
+    apiClient = LinkFiveApiClient(apiKey, environment);
+  }
+
+  suspend fun fetchSubscriptions() {
+    if (!::apiClient.isInitialized) {
+      throw LaunchSdkNeededException()
+    }
+  }
+}
+
+class LinkFiveApiClient(apiKey: String, environment: LinkFiveEnvironment) {
+  private val apiKey = apiKey;
+  private val environment = environment;
+
+  suspend fun fetchSubscriptions() {
+
+  }
+
+  suspend fun verify() {
+
+  }
+
+  suspend fun purchase() {
+
+  }
+}
+
+enum class LinkFiveEnvironment(val url: String) {
+  STAGING("https://api.staging.linkfive.io/api/"), PRODUCTION("https://api.linkfive.io/api/")
+}
+
+data class LinkFiveSubscriptionList(
+  val platform: String,
+  val attributes: String?,
+  val subscriptionList: List<LinkFiveSubscription>
+)
+
+data class LinkFiveSubscription(
+  val sku: String
+)
+
+class LaunchSdkNeededException(message: String = "Launch SDK needed.") : Exception(message)
+class NoProductIdsFoundException(message: String) : Exception(message)
+class NoProductsFoundException(message: String) : Exception(message)
+class CantMakePaymentsException(message: String) : Exception(message)
