@@ -5,10 +5,14 @@ buildscript {
   repositories {
     google()
     jcenter()
+    maven {
+      url 'https://maven.google.com/'
+      name 'Google'
+    }
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.2.1'
+    classpath 'com.android.tools.build:gradle:7.0.1'
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
@@ -33,7 +37,6 @@ android {
     targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
     versionCode 1
     versionName "1.0"
-
   }
 
   buildTypes {
@@ -122,12 +125,11 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault('kotlinVersion')
+def billing_version = "4.0.0"
 
 dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-  val billing_version = "4.0.0"
   implementation("com.android.billingclient:billing-ktx:$billing_version")
 }
