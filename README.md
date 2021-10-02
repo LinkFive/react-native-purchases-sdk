@@ -8,6 +8,13 @@ LinkFive Subscription Management.
 npm install react-native-purchases-sdk
 ```
 
+## Start example
+
+- iOS: yarn example ios
+- Android:
+  - Change local Java version to 15 - `export JAVA_HOME=`/usr/libexec/java_home -v 15.0.2``
+  - yarn example android
+
 ## Usage
 
 ```js
