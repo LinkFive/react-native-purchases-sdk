@@ -801,7 +801,6 @@ extension SKProduct {
             "productId" : productIdentifier,
             "price" : "\(price)",
             "currency" : priceLocale.currencyCode,
-            "countryCode" : SKPaymentQueue.default().storefront?.countryCode,
             "title" : localizedTitle,
             "description" : localizedDescription,
             "localizedPrice" : localizedPrice,
