@@ -134,4 +134,5 @@ dependencies {
   implementation("com.android.billingclient:billing-ktx:$billing_version")
   implementation "io.ktor:ktor-client-core:$ktor_version"
   implementation "io.ktor:ktor-client-cio:$ktor_version"
+  implementation "io.ktor:ktor-client-gson:$ktor_version"
 }
