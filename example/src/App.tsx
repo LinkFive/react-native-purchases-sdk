@@ -1,12 +1,24 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Button, Alert } from 'react-native';
+import { StyleSheet, View, Text, Button, Alert, Platform } from 'react-native';
 import PurchasesSdk from 'react-native-purchases-sdk';
 
 export default function App() {
   const [subscriptions, setSubscriptions] = React.useState<any | undefined>();
   const [receipts, setReceipts] = React.useState<any | undefined>();
   const [launchDetails, setLaunchDetails] = React.useState<string | undefined>();
+
+  function RestoreButton() {
+    if (Platform.OS === 'ios') {
+      return <Button onPress={async () => {
+        const success = await PurchasesSdk.restore();
+        console.log(`restore success: ${success}`);
+        await fetchReceipts();
+      }} title="Restore"></Button>
+    }
+
+    return <View/>
+  }
 
   function SubscriptionButtons() {
     if (subscriptions == undefined || subscriptions.length == 0) {
@@ -68,11 +80,7 @@ export default function App() {
 
       <View style={{ height: 20 }} />
 
-      <Button onPress={async () => {
-        const success = await PurchasesSdk.restore();
-        console.log(`restore success: ${success}`);
-        await fetchReceipts();
-      }} title="Restore"></Button>
+      <RestoreButton/>
 
       <Receipts/>
     </View>
