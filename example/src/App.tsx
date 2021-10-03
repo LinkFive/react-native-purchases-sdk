@@ -6,17 +6,19 @@ import PurchasesSdk from 'react-native-purchases-sdk';
 export default function App() {
   const [subscriptions, setSubscriptions] = React.useState<any | undefined>();
   const [receipts, setReceipts] = React.useState<any | undefined>();
+  const [launchDetails, setLaunchDetails] = React.useState<string | undefined>();
 
   function SubscriptionButtons() {
-    if (subscriptions === undefined) {
-      return <Text> Loading... </Text>
+    if (subscriptions == undefined || subscriptions.length == 0) {
+      return <Text> No subscriptions... </Text>
     }
 
     const buttons = subscriptions.map((subscription: { productId: string; price: number;}) => <Button key={"btn_" + subscription.productId} onPress={async () => {
       const success = await PurchasesSdk.purchase(subscription.productId);
-      console.log(`purchase success: ${success}`);
+      console.log(`purchase success: ${success}`)
       await fetchReceipts();
     }} title={subscription.productId + " for " + subscription.price}></Button>)
+
     return buttons;
   }
 
@@ -42,14 +44,16 @@ export default function App() {
 
   React.useEffect(() => {
     async function fetch() {
-      await PurchasesSdk.launch("YOUR_API_KEY","STAGING")
-
+      const launchDetails = await PurchasesSdk.launch("9da7a841aef832879a0cd5e55ea43635ac0142d57533c865ec99e202fa139c88","STAGING")
+      setLaunchDetails(launchDetails)
+      console.log("launched")
       try {
-        const fetchedSubscriptions = await PurchasesSdk.fetchSubscriptions();
-        setSubscriptions(fetchedSubscriptions);
-        await fetchReceipts();
+        const fetchedSubscriptions = await PurchasesSdk.fetchSubscriptions()
+        console.log("fetchedSubscriptions")
+        setSubscriptions(fetchedSubscriptions)
+        await fetchReceipts()
       } catch (error) {
-        console.log(error);
+        console.log(error)
       }
     }
 
@@ -58,7 +62,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text style={{textAlignVertical: "center",textAlign: "center",}}> {launchDetails} </Text>
+
       <SubscriptionButtons />
+
+      <View style={{ height: 20 }} />
 
       <Button onPress={async () => {
         const success = await PurchasesSdk.restore();
