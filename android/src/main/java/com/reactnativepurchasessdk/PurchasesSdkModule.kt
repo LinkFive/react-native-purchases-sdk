@@ -21,14 +21,6 @@ class PurchasesSdkModule(reactContext: ReactApplicationContext) : ReactContextBa
         return "PurchasesSdk"
     }
 
-    // Example method
-    // See https://reactnative.dev/docs/native-modules-android
-    @ReactMethod
-    fun multiply(a: Int, b: Int, promise: Promise) {
-
-      promise.resolve(a * b)
-    }
-
     @ReactMethod
     fun launch(apiKey: String, environment: String, promise: Promise) {
       val environmentType = LinkFiveEnvironment.valueOf(environment)

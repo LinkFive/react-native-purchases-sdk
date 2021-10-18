@@ -5,11 +5,6 @@ class PurchasesSdk: NSObject {
 
     private let linkfivePurchases = LinkFivePurchases.shared
 
-    @objc(multiply:withB:withResolver:withRejecter:)
-    func multiply(a: Float, b: Float, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
-        resolve(a*b)
-    }
-
     @objc(launch:withEnvironment:withResolver:withRejecter:)
     func launch(apiKey: String, environment: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) -> Void {
         let environment = LinkFiveEnvironment(rawValue: environment) ?? .staging
@@ -750,7 +745,7 @@ public struct LinkFiveReceipt: Codable {
 
     /// Optional custom attributes.
     public let attributes: String?
-    
+
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
@@ -758,7 +753,7 @@ public struct LinkFiveReceipt: Codable {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         return dateFormatter
     }
-    
+
     /// Returns the receipt as dictionary
     var asDictionary: [String: Any?] {
         return [
