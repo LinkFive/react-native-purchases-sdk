@@ -56,7 +56,7 @@ export default function App() {
 
   React.useEffect(() => {
     async function fetch() {
-      const launchDetails = await PurchasesSdk.launch("9da7a841aef832879a0cd5e55ea43635ac0142d57533c865ec99e202fa139c88","STAGING")
+      const launchDetails = await PurchasesSdk.launch("YOUR_API_KEY","STAGING")
       setLaunchDetails(launchDetails)
       console.log("launched")
       try {
