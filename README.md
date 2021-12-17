@@ -14,7 +14,7 @@ npm install react-native-purchases-sdk
 - Add your bundle- and development id to the xcode project
 - iOS: yarn example ios
 - Android:
-  - Change local Java version to lower than 16, for example - `export JAVA_HOME=`/usr/libexec/java_home -v 15.0.2``
+  - Change local Java version to lower than 16, for example - ``  JAVA_HOME=`/usr/libexec/java_home -v 15.0.2` ``
   - yarn example android
 
 ## Usage
